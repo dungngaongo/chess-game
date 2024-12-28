@@ -5,6 +5,7 @@ export enum Color {
     Black
 }
 
+// toa do
 export type Coords = {
     x: number;
     y: number;
@@ -40,6 +41,7 @@ export const pieceImagePaths: Readonly<Record<FENChar, string>> = {
     [FENChar.BlackKing]: "assets/pieces/black king.svg"
 }
 
+//ds cac o ma quan co co the an toan di den
 export type SafeSquares = Map<string, Coords[]>;
 
 export enum MoveType {

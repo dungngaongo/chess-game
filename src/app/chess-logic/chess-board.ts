@@ -155,16 +155,13 @@ export class ChessBoard {
         if (!piece) return false;
 
         const newPiece: Piece | null = this.chessBoard[newX][newY];
-        // we cant put piece on a square that already contains piece of the same square
         if (newPiece && newPiece.color === piece.color) return false;
 
-        // simulate position
         this.chessBoard[prevX][prevY] = null;
         this.chessBoard[newX][newY] = piece;
 
         const isPositionSafe: boolean = !this.isInCheck(piece.color, false);
 
-        // restore position back
         this.chessBoard[prevX][prevY] = piece;
         this.chessBoard[newX][newY] = newPiece;
 
@@ -190,18 +187,14 @@ export class ChessBoard {
                     let newPiece: Piece | null = this.chessBoard[newX][newY];
                     if (newPiece && newPiece.color === piece.color) continue;
 
-                    // need to restrict pawn moves in certain directions
                     if (piece instanceof Pawn) {
-                        // cant move pawn two squares straight if there is piece infront of him
                         if (dx === 2 || dx === -2) {
                             if (newPiece) continue;
                             if (this.chessBoard[newX + (dx === 2 ? -1 : 1)][newY]) continue;
                         }
 
-                        // cant move pawn one square straight if piece is infront of him
                         if ((dx === 1 || dx === -1) && dy === 0 && newPiece) continue;
 
-                        // cant move pawn diagonally if there is no piece, or piece has same color as pawn
                         if ((dy === 1 || dy === -1) && (!newPiece || piece.color === newPiece.color)) continue;
                     }
 
@@ -346,8 +339,6 @@ export class ChessBoard {
 
     private handlingSpecialMoves(piece: Piece, prevX: number, prevY: number, newX: number, newY: number, moveType: Set<MoveType>): void {
         if (piece instanceof King && Math.abs(newY - prevY) === 2) {
-            // newY > prevY  === king side castle
-
             const rookPositionX: number = prevX;
             const rookPositionY: number = newY > prevY ? 7 : 0;
             const rook = this.chessBoard[rookPositionX][rookPositionY] as Rook;
@@ -412,8 +403,7 @@ export class ChessBoard {
         return false;
     }
 
-    // Insufficient material
-
+    // thieu quan
     private playerHasOnlyTwoKnightsAndKing(pieces: { piece: Piece, x: number, y: number }[]): boolean {
         return pieces.filter(piece => piece.piece instanceof Knight).length === 2;
     }

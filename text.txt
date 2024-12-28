@@ -1,0 +1,14 @@
+---------------------------------
+Chuẩn FEN (Forsyth-Edwards Notation) là một định dạng dùng để mô tả trạng thái của bàn cờ vua. Một chuỗi FEN bao gồm 6 phần, 
+được phân cách bởi dấu cách:
+
+-Trạng thái bàn cờ: Vị trí các quân cờ từ hàng 8 đến hàng 1, mỗi hàng cách nhau dấu "/". Các số biểu thị ô trống liên tiếp.
+-Lượt đi: "w" (trắng) hoặc "b" (đen).
+-Quyền nhập thành: "KQkq" (trắng, đen), "-" nếu không còn.
+-Ô bắt tốt: Vị trí bắt tốt en passant, hoặc "-" nếu không có.
+-Số nước không ăn quân: Đếm nước cho luật hòa 50 nước.
+-Số lượt đi: Số lượt của cả hai bên, bắt đầu từ 1.
+---------------------------------
+-đọc lại isInCheck, canCaptureEnPassant, canCastle, handlingSpecialMoves, insufficentMaterial, storeMove, startingPieceCoordsNotation 
+trong app/chess-logic/chess-board
+
