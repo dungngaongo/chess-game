@@ -136,7 +136,6 @@ export class ChessBoardComponent implements OnInit, OnDestroy {
     if (!this.selectedSquare.piece) return;
     if (!this.isSquareSafeForSelectedPiece(newX, newY)) return;
 
-    // pawn promotion
     const isPawnSelected: boolean = this.selectedSquare.piece === FENChar.WhitePawn || this.selectedSquare.piece === FENChar.BlackPawn;
     const isPawnOnlastRank: boolean = isPawnSelected && (newX === 7 || newX === 0);
     const shouldOpenPromotionDialog: boolean = !this.isPromotionActive && isPawnOnlastRank;
@@ -145,7 +144,6 @@ export class ChessBoardComponent implements OnInit, OnDestroy {
       this.pieceSafeSquares = [];
       this.isPromotionActive = true;
       this.promotionCoords = { x: newX, y: newY };
-      // because now we wait for player to choose promoted piece
       return;
     }
 
@@ -183,6 +181,7 @@ export class ChessBoardComponent implements OnInit, OnDestroy {
     else
       this.moveSound(new Set<MoveType>([MoveType.BasicMove]));
   }
+  
   public move(x: number, y: number): void {
     this.selectingPiece(x, y);
     this.placingPiece(x, y);

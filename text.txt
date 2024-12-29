@@ -11,4 +11,5 @@ Chuẩn FEN (Forsyth-Edwards Notation) là một định dạng dùng để mô 
 ---------------------------------
 -đọc lại isInCheck, canCaptureEnPassant, canCastle, handlingSpecialMoves, insufficentMaterial, storeMove, startingPieceCoordsNotation 
 trong app/chess-logic/chess-board
+-đọc lại ngOnInit, unmarkingPreviouslySlectedAndSafeSquares trong modules\chess-board\chess-board.component.ts
 
