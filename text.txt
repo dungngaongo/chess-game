@@ -9,7 +9,4 @@ Chuẩn FEN (Forsyth-Edwards Notation) là một định dạng dùng để mô 
 -Số nước không ăn quân: Đếm nước cho luật hòa 50 nước.
 -Số lượt đi: Số lượt của cả hai bên, bắt đầu từ 1.
 ---------------------------------
--đọc lại isInCheck, canCaptureEnPassant, canCastle, handlingSpecialMoves, insufficentMaterial, storeMove, startingPieceCoordsNotation 
-trong app/chess-logic/chess-board
--đọc lại ngOnInit, unmarkingPreviouslySlectedAndSafeSquares trong modules\chess-board\chess-board.component.ts
 
